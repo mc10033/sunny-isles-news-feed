@@ -56,6 +56,38 @@
   text-shadow: 0 3px 6px rgba(255, 255, 255, 0.3);
 }
 
+.admin-link {
+  display: flex;
+  align-items: center;
+}
+
+.admin-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.admin-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #004085);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  border-color: #ffffff;
+}
+
+.admin-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
 .search-filter-container {
   display: flex;
   align-items: center;
@@ -444,6 +476,10 @@
   .logo-text {
     font-size: 1.8rem;
     text-align: center;
+  }
+  
+  .admin-link {
+    justify-content: center;
   }
   
   .sun-icon svg {
