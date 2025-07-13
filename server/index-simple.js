@@ -91,6 +91,11 @@ const authenticateToken = (req, res, next) => {
 
 // Routes
 
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
 // Login
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
