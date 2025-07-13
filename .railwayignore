@@ -1,5 +1,14 @@
-# Ignore everything except server directory
-*
+# Ignore everything except server directory and necessary files
+client/
+uploads/
+node_modules/
+.git/
+.gitignore
+README.md
+package-lock.json
+
+# Include only server files and configuration
 !server/
 !server/*
-!railway.json 
+!railway.json
+!Procfile 
