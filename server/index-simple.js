@@ -42,8 +42,8 @@ let tags = [
 let users = [
   {
     id: '1',
-    username: 'admin',
-    password: bcrypt.hashSync('admin123', 10),
+    username: 'maxcarter',
+    password: bcrypt.hashSync('Shudder23', 10),
     role: 'admin'
   }
 ];
@@ -336,5 +336,5 @@ app.use((error, req, res, next) => {
 
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  console.log(`Admin login: username: admin, password: admin123`);
+  console.log(`Admin login: username: maxcarter, password: Shudder23`);
 }); 
