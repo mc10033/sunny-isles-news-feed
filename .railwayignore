@@ -1,0 +1,5 @@
+# Ignore everything except server directory
+*
+!server/
+!server/*
+!railway.json 
