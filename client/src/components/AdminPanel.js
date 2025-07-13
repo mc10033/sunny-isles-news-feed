@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import io from 'socket.io-client';
 import axios from 'axios';
+import Settings from './Settings';
 import './AdminPanel.css';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
@@ -27,7 +28,7 @@ function AdminPanel() {
   const [message, setMessage] = useState('');
   const [editingStory, setEditingStory] = useState(null);
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState('manageStories'); // 'manageStories', 'addStory', 'addTags'
+  const [activeTab, setActiveTab] = useState('manageStories'); // 'manageStories', 'addStory', 'addTags', 'settings'
 
   useEffect(() => {
     // Check authentication
@@ -363,6 +364,12 @@ function AdminPanel() {
         >
           Add Tags
         </button>
+        <button
+          className={activeTab === 'settings' ? 'active' : ''}
+          onClick={() => setActiveTab('settings')}
+        >
+          Settings
+        </button>
       </nav>
 
       {message && (
@@ -614,6 +621,11 @@ function AdminPanel() {
               )}
             </div>
           </div>
+        )}
+
+        {/* Settings Section */}
+        {activeTab === 'settings' && (
+          <Settings />
         )}
       </div>
     </div>

@@ -85,7 +85,7 @@ function Login() {
         </form>
         
         <div className="login-footer">
-          <p>Default credentials: admin / admin123</p>
+          <p>🔐 Secure admin access</p>
         </div>
       </div>
     </div>
