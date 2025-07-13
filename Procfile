@@ -1,1 +1,1 @@
-web: cd server && npm install && node index-simple.js 
+web: npm start 
