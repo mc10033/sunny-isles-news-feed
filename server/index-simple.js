@@ -96,7 +96,11 @@ const authenticateToken = (req, res, next) => {
 
 // Routes
 
-// Health check endpoint
+// Health check endpoints
+app.get('/health', (req, res) => {
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
@@ -373,5 +377,7 @@ app.use((error, req, res, next) => {
 
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  console.log(`✅ Admin authentication enabled`);
+  console.log(`Admin login: username: ${users[0].username}, password: Shudder23`);
+  console.log(`Health check available at: http://localhost:${PORT}/health`);
+  console.log(`API health check available at: http://localhost:${PORT}/api/health`);
 }); 
