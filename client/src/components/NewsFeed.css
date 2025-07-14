@@ -366,7 +366,7 @@ body, .news-feed-container, .App {
   justify-content: space-between;
   height: 100%;
   min-width: 0;
-  gap: 2px;
+  gap: 1px;
   overflow: hidden;
 }
 
@@ -375,7 +375,7 @@ body, .news-feed-container, .App {
   color: #000 !important;
   font-size: 1rem;
   font-weight: 600;
-  line-height: 1.1;
+  line-height: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -386,8 +386,8 @@ body, .news-feed-container, .App {
   color: #333 !important;
   font-size: 0.8rem;
   margin: 0;
-  line-height: 1.1;
-  max-height: 1.8em;
+  line-height: 1;
+  max-height: 1.6em;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -400,7 +400,7 @@ body, .news-feed-container, .App {
 .story-meta {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   margin: 0;
   flex-shrink: 0;
 }
@@ -409,19 +409,19 @@ body, .news-feed-container, .App {
   color: #666 !important;
   font-size: 0.75rem;
   margin: 0;
+  line-height: 1;
 }
 
 .story-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 3px;
   margin: 0;
 }
 
 .story-tag {
-  background: var(--tag-color, #007bff);
   color: white !important;
-  padding: 2px 6px;
+  padding: 1px 5px;
   border-radius: 12px;
   font-size: 0.7rem;
   font-weight: 500;
@@ -433,7 +433,7 @@ body, .news-feed-container, .App {
 
 .story-actions {
   display: flex;
-  gap: 6px;
+  gap: 4px;
   margin: 0;
   flex-shrink: 0;
 }
@@ -443,16 +443,16 @@ body, .news-feed-container, .App {
   background: #007bff;
   color: white;
   border: none;
-  padding: 4px 8px;
+  padding: 3px 6px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 500;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 20px;
+  height: 18px;
   transition: background-color 0.3s ease;
 }
 
@@ -528,9 +528,9 @@ body, .news-feed-container, .App {
 
 .read-more-btn,
 .read-less-btn {
-  background: transparent;
-  border: 1px solid #007bff;
-  color: #007bff;
+  background: linear-gradient(135deg, #FFA726 0%, #FF9800 100%);
+  border: 1px solid #FF9800;
+  color: white;
   padding: 4px 8px;
   border-radius: 4px;
   cursor: pointer;
@@ -538,12 +538,15 @@ body, .news-feed-container, .App {
   transition: all 0.3s ease;
   margin-right: 6px;
   font-size: 0.8rem;
+  box-shadow: 0 1px 3px rgba(255, 152, 0, 0.2);
 }
 
 .read-more-btn:hover,
 .read-less-btn:hover {
-  background: #007bff;
-  color: white;
+  background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+  border-color: #F57C00;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);
 }
 
 .website-btn {
