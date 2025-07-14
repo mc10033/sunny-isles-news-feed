@@ -430,26 +430,22 @@ body, .news-feed-container, .App {
 .story-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 2px;
-  margin: 0 0 1px 0; /* reduced bottom margin */
+  gap: 8px;
+  margin: 2px 0 4px 0;
 }
 
-.story-tag {
-  color: white !important;
-  padding: 1px 4px;
-  border-radius: 10px;
-  font-size: 0.65rem;
+.story-tag-link {
+  color: #000;
+  font-size: 0.75rem;
   font-weight: 500;
   text-decoration: none;
-  display: inline-block;
-  line-height: 1;
-  white-space: nowrap;
-  background-color: #FFA726 !important; /* default fallback color */
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-/* Ensure inline styles override CSS */
-.story-tag[style*="background-color"] {
-  background-color: inherit !important;
+.story-tag-link:hover {
+  color: #333;
+  text-decoration: underline;
 }
 
 .story-actions {

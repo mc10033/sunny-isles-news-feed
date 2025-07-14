@@ -324,8 +324,7 @@ function NewsFeed() {
                           return tag ? (
                             <span 
                               key={tagId} 
-                              className="story-tag"
-                              style={{ backgroundColor: tag.color, cursor: 'pointer' }}
+                              className="story-tag-link"
                               onClick={e => {
                                 e.stopPropagation();
                                 setSelectedTags([tagId]);
