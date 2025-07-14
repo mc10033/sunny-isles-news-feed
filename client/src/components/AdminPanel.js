@@ -511,6 +511,16 @@ function AdminPanel() {
                   placeholder="https://example.com/image.jpg"
                 />
                 <small>Provide a direct link to an image. Uploaded images take precedence over URLs.</small>
+                {editingStory && editingStory.imageUrl && (
+                  <div className="current-image-preview">
+                    <p><strong>Current image:</strong></p>
+                    <img 
+                      src={editingStory.imageUrl} 
+                      alt="Current story image" 
+                      style={{ maxWidth: '200px', maxHeight: '150px', border: '1px solid #ddd', borderRadius: '4px' }}
+                    />
+                  </div>
+                )}
               </div>
 
               <div className="form-actions">
