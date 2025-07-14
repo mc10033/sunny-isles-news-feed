@@ -385,10 +385,10 @@ body, .news-feed-container, .App {
 }
 
 .story-title {
-  margin: 0;
+  margin: 0 0 2px 0;
   color: #000 !important;
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 700;
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
@@ -430,7 +430,7 @@ body, .news-feed-container, .App {
   display: flex;
   flex-wrap: wrap;
   gap: 2px;
-  margin: 0;
+  margin: 0 0 2px 0;
 }
 
 .story-tag {
@@ -478,6 +478,7 @@ body, .news-feed-container, .App {
 .story-excerpt {
   flex: 1;
   transition: all 0.4s ease;
+  margin-top: 0;
 }
 
 .story-card.expanded .story-excerpt {
@@ -552,42 +553,43 @@ body, .news-feed-container, .App {
 
 .read-more-btn,
 .read-less-btn {
-  background: linear-gradient(135deg, #FFA726 0%, #FF9800 100%);
-  border: 1px solid #FF9800;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  margin-right: 6px;
-  font-size: 0.8rem;
-  box-shadow: 0 1px 3px rgba(255, 152, 0, 0.2);
+  background: linear-gradient(135deg, #FFA726 0%, #FF9800 100%) !important;
+  border: 1.5px solid #FF9800 !important;
+  color: white !important;
+  padding: 7px 18px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  margin-right: 6px !important;
+  font-size: 1.05rem !important;
+  box-shadow: 0 1px 3px rgba(255, 152, 0, 0.2) !important;
 }
 
 .read-more-btn:hover,
 .read-less-btn:hover {
-  background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
-  border-color: #F57C00;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);
+  background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%) !important;
+  border-color: #F57C00 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3) !important;
 }
 
 .website-btn {
   display: inline-block;
-  padding: 4px 8px;
-  background: #28a745;
-  color: white;
+  padding: 7px 18px;
+  background: #28a745 !important;
+  color: white !important;
   text-decoration: none;
   border-radius: 4px;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.3s ease;
   position: relative;
-  font-size: 0.8rem;
+  font-size: 1.05rem;
+  border: none !important;
 }
 
 .website-btn:hover {
-  background: #218838;
+  background: #218838 !important;
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
 }
@@ -605,7 +607,7 @@ body, .news-feed-container, .App {
 
 /* Story Date Added Styles */
 .story-date-added {
-  margin: 8px 0 12px 0;
+  margin: 0 0 2px 0;
   font-size: 14px;
   color: #666 !important;
   display: flex;
