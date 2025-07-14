@@ -84,12 +84,12 @@ function NewsFeed() {
 
   const toggleStoryExpansion = (storyId) => {
     setExpandedStories(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(storyId)) {
-        newSet.delete(storyId);
-      } else {
+      const newSet = new Set();
+      if (!prev.has(storyId)) {
+        // If this story isn't expanded, expand it and collapse all others
         newSet.add(storyId);
       }
+      // If it's already expanded, collapse it (newSet remains empty)
       return newSet;
     });
   };
@@ -293,7 +293,12 @@ function NewsFeed() {
         ) : (
           <>
             {currentStories.map(story => (
-              <div key={story.id} className="story-card" onClick={() => toggleStoryExpansion(story.id)} style={{ cursor: 'pointer' }}>
+              <div 
+                key={story.id} 
+                className={`story-card ${expandedStories.has(story.id) ? 'expanded' : ''}`} 
+                onClick={() => toggleStoryExpansion(story.id)} 
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="story-content">
                   {story.image && (
                     <div className="story-image">
@@ -355,6 +360,7 @@ function NewsFeed() {
                               href={story.website}
                               target="_blank"
                               rel="noopener noreferrer"
+                              className="website-btn"
                               onClick={e => {
                                 e.stopPropagation();
                                 e.preventDefault();
@@ -365,6 +371,7 @@ function NewsFeed() {
                             </a>
                           )}
                           <button 
+                            className="read-less-btn"
                             onClick={e => {
                               e.stopPropagation();
                               toggleStoryExpansion(story.id);
@@ -376,6 +383,7 @@ function NewsFeed() {
                       ) : (
                         <>
                           <button 
+                            className="read-more-btn"
                             onClick={e => {
                               e.stopPropagation();
                               toggleStoryExpansion(story.id);
@@ -388,6 +396,7 @@ function NewsFeed() {
                               href={story.website}
                               target="_blank"
                               rel="noopener noreferrer"
+                              className="website-btn"
                               onClick={e => {
                                 e.stopPropagation();
                                 e.preventDefault();
