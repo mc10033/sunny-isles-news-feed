@@ -366,14 +366,14 @@ body, .news-feed-container, .App {
   justify-content: space-between;
   height: 100%;
   min-width: 0;
-  gap: 4px;
+  gap: 2px;
   overflow: hidden;
 }
 
 .story-title {
   margin: 0;
   color: #000 !important;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.1;
   white-space: nowrap;
@@ -384,10 +384,10 @@ body, .news-feed-container, .App {
 
 .story-summary, .story-preview p {
   color: #333 !important;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   margin: 0;
-  line-height: 1.2;
-  max-height: 2.4em;
+  line-height: 1.1;
+  max-height: 1.8em;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -399,39 +399,66 @@ body, .news-feed-container, .App {
 
 .story-meta {
   display: flex;
+  align-items: center;
   gap: 8px;
   margin: 0;
-  font-size: 11px;
-  color: #666 !important;
-  line-height: 1;
   flex-shrink: 0;
 }
 
-.story-author {
-  font-weight: 500;
-}
-
 .story-date {
-  color: #999;
+  color: #666 !important;
+  font-size: 0.75rem;
+  margin: 0;
 }
 
 .story-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 3px;
+  gap: 4px;
+  margin: 0;
+}
+
+.story-tag {
+  background: var(--tag-color, #007bff);
+  color: white !important;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.story-actions {
+  display: flex;
+  gap: 6px;
   margin: 0;
   flex-shrink: 0;
 }
 
-.story-tag {
-  padding: 2px 6px;
-  border-radius: 12px;
-  font-size: 9px;
-  font-weight: 500;
+.story-actions button,
+.story-actions a {
+  background: #007bff;
   color: white;
   border: none;
-  cursor: default;
-  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.story-actions button:hover,
+.story-actions a:hover {
+  background: #0056b3;
 }
 
 .story-excerpt {

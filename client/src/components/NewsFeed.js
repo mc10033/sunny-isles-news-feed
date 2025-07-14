@@ -334,47 +334,23 @@ function NewsFeed() {
                           {story.content.split('\n').map((paragraph, index) => (
                             <p key={index}>{paragraph}</p>
                           ))}
-                          {story.website && (
-                            <div className="story-website-link">
-                              <a 
-                                href={story.website} 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                onClick={(e) => {
-                                  // Ensure it opens in new tab
-                                  e.preventDefault();
-                                  window.open(story.website, '_blank', 'noopener,noreferrer');
-                                }}
-                              >
-                                {story.websiteButtonText || 'Visit Website'}
-                              </a>
-                              <div className="story-website-url">{story.website}</div>
-                            </div>
-                          )}
-                          <button 
-                            className="read-less-btn"
-                            onClick={() => toggleStoryExpansion(story.id)}
-                          >
-                            Read less
-                          </button>
                         </div>
                       ) : (
                         <div className="story-preview">
                           <p>{truncateText(story.content)}</p>
-                          <button 
-                            className="read-more-btn"
-                            onClick={() => toggleStoryExpansion(story.id)}
-                          >
-                            Read more...
-                          </button>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <div className="story-actions">
+                      {expandedStories.has(story.id) ? (
+                        <>
                           {story.website && (
                             <a
                               href={story.website}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="website-btn"
                               onClick={(e) => {
-                                // Ensure it opens in new tab
                                 e.preventDefault();
                                 window.open(story.website, '_blank', 'noopener,noreferrer');
                               }}
@@ -382,7 +358,33 @@ function NewsFeed() {
                               {story.websiteButtonText || 'Visit Website'}
                             </a>
                           )}
-                        </div>
+                          <button 
+                            onClick={() => toggleStoryExpansion(story.id)}
+                          >
+                            Read less
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          <button 
+                            onClick={() => toggleStoryExpansion(story.id)}
+                          >
+                            Read more
+                          </button>
+                          {story.website && (
+                            <a
+                              href={story.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                window.open(story.website, '_blank', 'noopener,noreferrer');
+                              }}
+                            >
+                              {story.websiteButtonText || 'Visit Website'}
+                            </a>
+                          )}
+                        </>
                       )}
                     </div>
                   </div>
