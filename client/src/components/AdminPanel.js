@@ -212,10 +212,18 @@ function AdminPanel() {
   };
 
   const startEditing = (story) => {
+    console.log('Starting edit for story:', story);
     setEditingStory(story);
     setSelectedImage(null);
-    document.getElementById('image-input').value = '';
+    
+    // Safely access the image input element
+    const imageInput = document.getElementById('image-input');
+    if (imageInput) {
+      imageInput.value = '';
+    }
+    
     setActiveTab('addStory'); // Switch to Add Story tab to show the edit form
+    console.log('Switched to addStory tab, editingStory set to:', story);
   };
 
   const cancelEditing = () => {
@@ -590,7 +598,10 @@ function AdminPanel() {
                     </div>
                     <div className="story-actions">
                       <button 
-                        onClick={() => startEditing(story)}
+                        onClick={() => {
+                          console.log('Edit button clicked for story:', story.id);
+                          startEditing(story);
+                        }}
                         className="edit-btn"
                       >
                         Edit
