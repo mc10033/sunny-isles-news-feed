@@ -293,7 +293,7 @@ function NewsFeed() {
         ) : (
           <>
             {currentStories.map(story => (
-              <div key={story.id} className="story-card">
+              <div key={story.id} className="story-card" onClick={() => toggleStoryExpansion(story.id)} style={{ cursor: 'pointer' }}>
                 <div className="story-content">
                   {story.image && (
                     <div className="story-image">
@@ -320,7 +320,12 @@ function NewsFeed() {
                             <span 
                               key={tagId} 
                               className="story-tag"
-                              style={{ backgroundColor: tag.color }}
+                              style={{ backgroundColor: tag.color, cursor: 'pointer' }}
+                              onClick={e => {
+                                e.stopPropagation();
+                                setSelectedTags([tagId]);
+                                setShowTagFilters(true);
+                              }}
                             >
                               {tag.name}
                             </span>
@@ -350,7 +355,8 @@ function NewsFeed() {
                               href={story.website}
                               target="_blank"
                               rel="noopener noreferrer"
-                              onClick={(e) => {
+                              onClick={e => {
+                                e.stopPropagation();
                                 e.preventDefault();
                                 window.open(story.website, '_blank', 'noopener,noreferrer');
                               }}
@@ -359,7 +365,10 @@ function NewsFeed() {
                             </a>
                           )}
                           <button 
-                            onClick={() => toggleStoryExpansion(story.id)}
+                            onClick={e => {
+                              e.stopPropagation();
+                              toggleStoryExpansion(story.id);
+                            }}
                           >
                             Read less
                           </button>
@@ -367,7 +376,10 @@ function NewsFeed() {
                       ) : (
                         <>
                           <button 
-                            onClick={() => toggleStoryExpansion(story.id)}
+                            onClick={e => {
+                              e.stopPropagation();
+                              toggleStoryExpansion(story.id);
+                            }}
                           >
                             Read more
                           </button>
@@ -376,7 +388,8 @@ function NewsFeed() {
                               href={story.website}
                               target="_blank"
                               rel="noopener noreferrer"
-                              onClick={(e) => {
+                              onClick={e => {
+                                e.stopPropagation();
                                 e.preventDefault();
                                 window.open(story.website, '_blank', 'noopener,noreferrer');
                               }}
