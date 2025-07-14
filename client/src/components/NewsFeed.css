@@ -430,8 +430,9 @@ body, .news-feed-container, .App {
 .story-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 1px 0 2px 0;
+  gap: 4px;
+  margin: 0;
+  line-height: 1;
 }
 
 .story-tag-link {
@@ -441,6 +442,9 @@ body, .news-feed-container, .App {
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
 }
 
 .story-tag-link:hover {
