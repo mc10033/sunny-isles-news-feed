@@ -215,6 +215,7 @@ function AdminPanel() {
     setEditingStory(story);
     setSelectedImage(null);
     document.getElementById('image-input').value = '';
+    setActiveTab('addStory'); // Switch to Add Story tab to show the edit form
   };
 
   const cancelEditing = () => {
@@ -574,7 +575,7 @@ function AdminPanel() {
                     <div className="story-info">
                       <h3>{story.title}</h3>
                       <p className="story-meta">
-                        By {story.author} • {formatDate(story.createdAt)}
+                        {formatDate(story.createdAt)}
                       </p>
                       <p className="story-preview">
                         {story.content.substring(0, 100)}...
@@ -600,21 +601,6 @@ function AdminPanel() {
                       >
                         Delete
                       </button>
-                      {editingStory && editingStory.id === story.id && (
-                        <div className="story-tags-edit">
-                          <h4>Edit Tags</h4>
-                          {tags.map(tag => (
-                            <label key={tag.id} className="tag-checkbox-label">
-                              <input
-                                type="checkbox"
-                                checked={story.tags && story.tags.includes(tag.id)}
-                                onChange={() => toggleStoryTag(story.id, tag.id)}
-                              />
-                              <span className="tag-pill">{tag.name}</span>
-                            </label>
-                          ))}
-                        </div>
-                      )}
                     </div>
                   </div>
                 ))

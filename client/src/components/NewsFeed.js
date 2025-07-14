@@ -311,9 +311,7 @@ function NewsFeed() {
                     <div className="story-date-added">
                       <span className="date-label">Added:</span> {formatDate(story.createdAt)}
                     </div>
-                    <div className="story-meta">
-                      <span className="story-author">By {story.author}</span>
-                    </div>
+
                     {story.tags && story.tags.length > 0 && (
                       <div className="story-tags">
                         {story.tags.map(tagId => {
