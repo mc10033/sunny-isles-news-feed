@@ -839,72 +839,294 @@ body, .news-feed-container, .App {
 }
 
 @media (max-width: 480px) {
-  .news-feed-container {
-    padding: 15px;
-  }
-
-  .story-content {
+  .story-actions {
     flex-direction: row !important;
-    gap: 7px;
-    padding: 7px !important;
+    gap: 6px !important;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 6px;
   }
-  .story-image {
-    width: 60px;
-    height: 60px;
+  .read-more-btn,
+  .read-less-btn,
+  .website-btn {
+    padding: 7px 10px !important;
+    font-size: 0.85rem !important;
+    min-width: 0 !important;
+    font-weight: 700 !important;
+    border-radius: 18px !important;
+    white-space: nowrap;
+    height: 36px !important;
+    line-height: 1.1 !important;
+    box-shadow: 0 1px 3px rgba(255, 152, 0, 0.15) !important;
   }
   .story-title {
     font-size: 1rem;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: initial !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.2;
+    max-height: 2.4em;
+    word-break: break-word;
   }
-  .filter-dropdown-content {
-    right: -100px;
-    min-width: 220px;
+  .story-card.expanded .story-title {
+    -webkit-line-clamp: unset;
+    max-height: none;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: initial !important;
+    display: block;
   }
+}
 
-  /* Pagination mobile styles */
-  .pagination-container {
-    padding: 15px 10px;
+/* Ensure .story-actions is always flex row for mobile */
+@media (max-width: 480px) {
+  .story-actions {
+    display: flex !important;
   }
+}
 
-  .pagination-info {
-    font-size: 14px;
-  }
+/* --- MODERN TOP BANNER REFINED --- */
+.top-banner {
+  background: linear-gradient(90deg, #FFA726 0%, #FF9800 100%);
+  padding: 40px 32px 24px 32px;
+  border-radius: 0 0 24px 24px;
+  box-shadow: 0 4px 24px rgba(255, 152, 0, 0.15);
+  color: #fff;
+  margin-bottom: 30px;
+  position: relative;
+}
 
-  .page-numbers {
-    gap: 5px;
-  }
+.top-banner .logo-text {
+  color: #fff !important;
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none !important;
+  box-shadow: none !important;
+}
 
-  .page-number {
-    min-width: 35px;
-    height: 35px;
-    font-size: 14px;
-  }
+.top-banner .tagline {
+  color: rgba(255,255,255,0.85);
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  background: none !important;
+  box-shadow: none !important;
+}
 
-  .pagination-btn {
-    padding: 8px 12px;
-    font-size: 14px;
-  }
+.top-banner .search-filter-container {
+  background: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0;
+  margin-top: 0;
+}
 
-  /* Bottom banner mobile styles */
-  .bottom-banner {
-    padding: 20px 15px;
-    margin-top: 30px;
-  }
+.top-banner .search-input {
+  background: transparent;
+  color: #333;
+  border: none;
+  box-shadow: none;
+  font-size: 1rem;
+  width: 220px;
+  outline: none;
+}
 
-  .disclaimer p {
-    font-size: 11px;
-  }
+.top-banner .search-input::placeholder {
+  color: #888;
+  opacity: 1;
+}
 
-  .social-media-links {
-    gap: 15px;
-  }
+.top-banner .filter-icon-btn {
+  background: #FFA726;
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 8px rgba(255,152,0,0.12);
+}
 
-  .social-link {
-    width: 35px;
-    height: 35px;
-  }
+.top-banner .filter-icon-btn:hover {
+  background: #FF9800;
+}
 
-  .social-link svg {
-    width: 18px;
-    height: 18px;
+@media (max-width: 768px) {
+  .top-banner {
+    padding: 24px 10px 16px 10px;
+    border-radius: 0 0 16px 16px;
   }
+  .top-banner .logo-text {
+    font-size: 2rem;
+  }
+  .top-banner .tagline {
+    font-size: 1rem;
+  }
+  .top-banner .search-filter-container {
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px 10px;
+  }
+  .top-banner .search-input {
+    width: 100%;
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-banner {
+    padding: 12px 4px 8px 4px;
+    border-radius: 0 0 10px 10px;
+  }
+  .top-banner .logo-text {
+    font-size: 1.3rem;
+  }
+  .top-banner .tagline {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- END MODERN TOP BANNER REFINED --- */ 
+
+/* --- FORCE LOGO TEXT TRANSPARENT BACKGROUND AND WHITE TEXT IN TOP BANNER --- */
+.top-banner .logo-text, .top-banner h1.logo-text {
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #fff !important;
+  color: #fff !important;
+}
+
+/* --- REMOVE BACKGROUND FROM LOGO AND SUN ICON IN TOP BANNER --- */
+.top-banner .logo-text, .top-banner .sun-icon {
+  background: none !important;
+  box-shadow: none !important;
+}
+.top-banner .sun-icon svg {
+  background: none !important;
+  box-shadow: none !important;
+  fill: #fff !important;
+  stroke: #fff !important;
+}
+
+/* --- PROMINENT WHITE TAGLINE IN TOP BANNER --- */
+.top-banner .tagline {
+  color: #fff !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+/* --- TOP BANNER ROW LAYOUT --- */
+.top-banner-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .top-banner-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+} 
+
+/* --- ENSURE ORANGE GRADIENT TOP BANNER, NO BACKGROUND ON LOGO --- */
+.top-banner {
+  background: linear-gradient(90deg, #FFA726 0%, #FF9800 100%) !important;
+  padding: 40px 32px 24px 32px;
+  border-radius: 0 0 24px 24px;
+  box-shadow: 0 4px 24px rgba(255, 152, 0, 0.15);
+  color: #fff;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.top-banner .logo-text, .top-banner .sun-icon, .top-banner .logo-text * {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.top-banner .sun-icon svg {
+  background: none !important;
+  box-shadow: none !important;
+  fill: #fff !important;
+  stroke: #fff !important;
+}
+
+.top-banner .logo-text, .top-banner h1.logo-text {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+.news-feed-container {
+  background: #fff !important;
+} 
+
+/* --- CLEANUP: ONLY .top-banner HAS BACKGROUND --- */
+.logo-text, .top-banner .logo-text, .top-banner .logo-text *,
+.top-banner .search-filter-container, .top-banner .search-filter-container * {
+  background: none !important;
+  background-image: none !important;
+} 
+
+/* --- FIX: REMOVE WHITE BACKGROUND FROM TOP BANNER AND CHILDREN --- */
+.news-feed-container .top-banner, .news-feed-container .top-banner * {
+  background: none !important;
+  background-color: transparent !important;
+}
+.news-feed-container .top-banner {
+  background: linear-gradient(90deg, #FFA726 0%, #FF9800 100%) !important;
+} 
+
+/* --- WHITE BACKGROUND FOR SEARCH INPUT IN TOP BANNER --- */
+.top-banner .search-input {
+  background: #fff !important;
+  color: #222 !important;
+  border-radius: 25px !important;
+  border: none !important;
+  padding: 10px 18px !important;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.top-banner .search-input::placeholder {
+  color: #888 !important;
+  opacity: 1;
+} 
+
+/* --- WHITE CIRCLE BACKGROUND FOR FILTER ICON IN TOP BANNER --- */
+.top-banner .filter-icon-btn {
+  background: #fff !important;
+  color: #222 !important;
+  border-radius: 50% !important;
+  border: none !important;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.2s, color 0.2s;
+}
+.top-banner .filter-icon-btn svg {
+  color: #222 !important;
+}
+.top-banner .filter-icon-btn:hover {
+  background: #f0f0f0 !important;
+  color: #007bff !important;
+}
+.top-banner .filter-icon-btn:hover svg {
+  color: #007bff !important;
 } 

@@ -103,9 +103,7 @@ function NewsFeed() {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
+      day: 'numeric'
     });
   };
 
@@ -192,90 +190,90 @@ function NewsFeed() {
 
   return (
     <div className="news-feed-container">
-      <header className="news-header">
-        <div className="logo-container">
-          <div className="logo-row">
-            <h1 className="logo-text">Sunny Isles</h1>
-            <div className="sun-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="5"/>
-                <line x1="12" y1="1" x2="12" y2="3"/>
-                <line x1="12" y1="21" x2="12" y2="23"/>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                <line x1="1" y1="12" x2="3" y2="12"/>
-                <line x1="21" y1="12" x2="23" y2="12"/>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      <div className="top-banner">
+        <div className="top-banner-row">
+          <div className="logo-text">
+            <span className="sun-icon" aria-label="sun">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5" fill="#fff"/>
+                <line x1="12" y1="1" x2="12" y2="3" stroke="#fff"/>
+                <line x1="12" y1="21" x2="12" y2="23" stroke="#fff"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="#fff"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="#fff"/>
+                <line x1="1" y1="12" x2="3" y2="12" stroke="#fff"/>
+                <line x1="21" y1="12" x2="23" y2="12" stroke="#fff"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="#fff"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="#fff"/>
               </svg>
+            </span>
+            Sunny Isles
+          </div>
+          <div className="search-filter-container">
+            <input
+              type="text"
+              placeholder="Search stories..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-input"
+            />
+            <div className="filter-dropdown">
+              <button 
+                className="filter-icon-btn"
+                onClick={() => setShowTagFilters(!showTagFilters)}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46 22,3"/>
+                </svg>
+                {selectedTags.length > 0 && (
+                  <span className="filter-badge">{selectedTags.length}</span>
+                )}
+              </button>
+              {showTagFilters && (
+                <div className="filter-dropdown-content">
+                  <div className="filter-header">
+                    <h3>Filter by Tags</h3>
+                    <div className="filter-actions">
+                      <button onClick={selectAllTags} className="select-all-btn">
+                        Select All
+                      </button>
+                      <button onClick={deselectAllTags} className="deselect-all-btn">
+                        Clear All
+                      </button>
+                    </div>
+                  </div>
+                  <div className="tags-list">
+                    {tags.map(tag => (
+                      <label key={tag.id} className="tag-checkbox">
+                        <input
+                          type="checkbox"
+                          checked={selectedTags.includes(tag.id)}
+                          onChange={() => toggleTag(tag.id)}
+                        />
+                        <span 
+                          className="tag-label"
+                          style={{ 
+                            backgroundColor: selectedTags.includes(tag.id) ? tag.color : 'transparent',
+                            borderColor: tag.color,
+                            color: selectedTags.includes(tag.id) ? 'white' : tag.color
+                          }}
+                        >
+                          {tag.name}
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                  {(searchTerm || selectedTags.length > 0) && (
+                    <button onClick={clearFilters} className="clear-filters-btn">
+                      Clear All Filters
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
-          <div className="tagline">A brighter look at Britain. Good news, gathered for you.</div>
         </div>
-        <div className="search-filter-container">
-          <input
-            type="text"
-            placeholder="Search stories..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input"
-          />
-          <div className="filter-dropdown">
-            <button 
-              className="filter-icon-btn"
-              onClick={() => setShowTagFilters(!showTagFilters)}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46 22,3"/>
-              </svg>
-              {selectedTags.length > 0 && (
-                <span className="filter-badge">{selectedTags.length}</span>
-              )}
-            </button>
-            {showTagFilters && (
-              <div className="filter-dropdown-content">
-                <div className="filter-header">
-                  <h3>Filter by Tags</h3>
-                  <div className="filter-actions">
-                    <button onClick={selectAllTags} className="select-all-btn">
-                      Select All
-                    </button>
-                    <button onClick={deselectAllTags} className="deselect-all-btn">
-                      Clear All
-                    </button>
-                  </div>
-                </div>
-                <div className="tags-list">
-                  {tags.map(tag => (
-                    <label key={tag.id} className="tag-checkbox">
-                      <input
-                        type="checkbox"
-                        checked={selectedTags.includes(tag.id)}
-                        onChange={() => toggleTag(tag.id)}
-                      />
-                      <span 
-                        className="tag-label"
-                        style={{ 
-                          backgroundColor: selectedTags.includes(tag.id) ? tag.color : 'transparent',
-                          borderColor: tag.color,
-                          color: selectedTags.includes(tag.id) ? 'white' : tag.color
-                        }}
-                      >
-                        {tag.name}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-                {(searchTerm || selectedTags.length > 0) && (
-                  <button onClick={clearFilters} className="clear-filters-btn">
-                    Clear All Filters
-                  </button>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-      </header>
+        <div className="tagline">A brighter look at Britain. Good news, gathered for you.</div>
+      </div>
       
       <div className="stories-container">
         {currentStories.length === 0 ? (
@@ -352,60 +350,41 @@ function NewsFeed() {
                     </div>
                     
                     <div className="story-actions">
+                      {story.website && (
+                        <a
+                          href={story.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="website-btn"
+                          onClick={e => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            window.open(story.website, '_blank', 'noopener,noreferrer');
+                          }}
+                        >
+                          {story.websiteButtonText || 'Visit Website'}
+                        </a>
+                      )}
                       {expandedStories.has(story.id) ? (
-                        <>
-                          {story.website && (
-                            <a
-                              href={story.website}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="website-btn"
-                              onClick={e => {
-                                e.stopPropagation();
-                                e.preventDefault();
-                                window.open(story.website, '_blank', 'noopener,noreferrer');
-                              }}
-                            >
-                              {story.websiteButtonText || 'Visit Website'}
-                            </a>
-                          )}
-                          <button 
-                            className="read-less-btn"
-                            onClick={e => {
-                              e.stopPropagation();
-                              toggleStoryExpansion(story.id);
-                            }}
-                          >
-                            Read less
-                          </button>
-                        </>
+                        <button 
+                          className="read-less-btn"
+                          onClick={e => {
+                            e.stopPropagation();
+                            toggleStoryExpansion(story.id);
+                          }}
+                        >
+                          Read less
+                        </button>
                       ) : (
-                        <>
-                          <button 
-                            className="read-more-btn"
-                            onClick={e => {
-                              e.stopPropagation();
-                              toggleStoryExpansion(story.id);
-                            }}
-                          >
-                            Read more
-                          </button>
-                          {story.website && (
-                            <a
-                              href={story.website}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="website-btn"
-                              onClick={e => {
-                                e.stopPropagation();
-                                e.preventDefault();
-                                window.open(story.website, '_blank', 'noopener,noreferrer');
-                              }}
-                            >
-                              {story.websiteButtonText || 'Visit Website'}
-                            </a>
-                          )}
-                        </>
+                        <button 
+                          className="read-more-btn"
+                          onClick={e => {
+                            e.stopPropagation();
+                            toggleStoryExpansion(story.id);
+                          }}
+                        >
+                          Read more
+                        </button>
                       )}
                     </div>
                   </div>
